@@ -4,21 +4,21 @@ import (
 	"github.com/ridthyself/cwtest/measure"
 )
 
-type New struct {
+type Stats struct { // defines the properties of a new item
 	Name   string
 	Weight float64
 }
 
-func (item *New) Weigh() float64 {
-	return item.Weight
+func (own *Stats) Weigh() float64 {
+	return own.Weight
 }
 
-type Group []New
+type Group []*Stats // identical in package: critter
 
-func (items *Group) Weigh() float64 {
+func (members Group) Weigh() float64 { // identical in package: critter
 	var Weight float64
-	for _, item := range *items {
-		Weight += measure.Weight(&item)
+	for _, member := range members {
+		Weight += measure.Weight(member)
 	}
 	return Weight
 }

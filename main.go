@@ -8,13 +8,16 @@ import (
 )
 
 func main() {
-	Sword := &item.New{"Glamdrig strom bringer", 2.1}
-	Shield := &item.New{"blockhead", 5.3}
-	Inventory := &item.Group{*Sword, *Shield}
-	Wedge := &critter.New{14, 32, 98, *Inventory}
-	fmt.Println(Wedge)
-	fmt.Println(Inventory)
+	Helm := &item.Stats{"Cap of Dismay", 0.8}
+	Sword := &item.Stats{"Pinner", 2.2}
+	Shield := &item.Stats{"Prot", 6.5}
+	Inventory := item.Group{Sword, Shield, Helm}
+	Wedge := &critter.Stats{"Wedge", 14, 32, 98, Inventory}
+	Biggs := &critter.Stats{"Biggs", 10, 29, 90, Inventory}
 	fmt.Println(measure.Weight(Wedge))
-	fmt.Println(measure.Weight(Sword))
+	fmt.Println(measure.Weight(Biggs))
 	fmt.Println(measure.Weight(Inventory))
+	fmt.Println(Biggs)
+	Party := &critter.Group{Biggs, Wedge}
+	fmt.Println(measure.Weight(Party))
 }
