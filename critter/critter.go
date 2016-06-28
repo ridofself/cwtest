@@ -5,11 +5,11 @@ import (
 	"github.com/ridthyself/cwtest/measure"
 )
 
-type Stats struct {
+type New struct {
 	Fat, Grit, Water float64
-	Inventory        item.Inventory
+	Inventory        item.Group
 }
 
-func (s *Stats) Weigh() float64 {
-	return s.Fat + s.Grit + s.Water + measure.Weight(&s.Inventory)
+func (c *New) Weigh() float64 {
+	return c.Fat + c.Grit + c.Water + measure.Weight(&c.Inventory)
 }

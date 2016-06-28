@@ -8,10 +8,10 @@ import (
 )
 
 func main() {
-	Sword := &item.Stats{"Glamdrig strom bringer", 2.1}
-	Shield := &item.Stats{"blockhead", 5.3}
-	Inventory := &item.Inventory{*Sword, *Shield}
-	Wedge := &critter.Stats{14, 32, 98, *Inventory}
+	Sword := &item.New{"Glamdrig strom bringer", 2.1}
+	Shield := &item.New{"blockhead", 5.3}
+	Inventory := &item.Group{*Sword, *Shield}
+	Wedge := &critter.New{14, 32, 98, *Inventory}
 	fmt.Println(Wedge)
 	fmt.Println(Inventory)
 	fmt.Println(measure.Weight(Wedge))
